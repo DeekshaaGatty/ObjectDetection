@@ -32,3 +32,5 @@ Explanation of the working of the project:
 14. Once the loop is exited, the video capture is released using `cap.release()` and any remaining OpenCV windows are closed using `cv2.destroyAllWindows()`.
 
 Overall, the script continuously captures frames, performs object detection, updates the GUI with bounding boxes and labels, and provides audio output of the detected objects in real-time.
+
+Note: In __main.py__ replace the file __logo.png__ with the file name that contains the logo you designed for your object detection application.
