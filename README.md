@@ -1,36 +1,53 @@
-# ObjectDetection
-Python project that utilises OpenCV to detect objects in real time on a video feed, displays the findings in a GUI, and outputs the labels of the objects it detects audibly.
+# Object Detection 
 
-Explanation of the working of the project:
+This is a simple object detection application built using OpenCV and Tkinter, which allows you to perform real-time object detection using a camera feed.
 
-1. The script uses the webcam as the video source and captures frames using `cv2.VideoCapture`.
+## Features
 
-2. The frames are resized to the desired input dimensions (`INPUT_WIDTH` and `INPUT_HEIGHT`).
+- Real-time object detection using a pre-trained model.
+- Graphical user interface (GUI) using Tkinter.
+- Object labels and confidence scores displayed on the GUI.
+- Text-to-speech feedback for detected object labels.
 
-3. The pre-trained model for object detection is loaded using `cv2.dnn_DetectionModel`.
+## Requirements
 
-4. The model is configured with input settings such as size, scale, mean, and swapRB.
+- Python 3.x
+- OpenCV (`opencv-python`)
+- Tkinter (usually included with Python installations)
+- Pillow (`Pillow`)
+- Pyttsx3 (`pyttsx3`)
 
-5. The script initializes the text-to-speech engine using `pyttsx3.init()`.
+## Setup
 
-6. A GUI window is created using Tkinter, with labels, buttons, and a canvas for displaying the video.
+1. Clone the repository:
 
-7. Inside a while loop, frames are continuously read from the video capture.
+    ```bash
+    git clone https://github.com/DeekshaaGatty/ObjectDetection.git
+    cd ObjectDetection
+    ```
 
-8. Object detection is performed on each frame using the loaded model and the `net.detect` method. Class IDs, confidences, and bounding boxes are obtained.
+2. Install the required packages
 
-9. The detected objects are iterated over, and bounding boxes and labels are drawn on the frame using OpenCV.
+3. Run the application:
 
-10. The script uses the text-to-speech engine to say the label of each detected object.
+    ```bash
+    python main.py
+    ```
 
-11. The frame is updated in the GUI canvas using the `app.update_frame` method.
+## Usage
 
-12. The GUI window is updated using `root.update()` to show the updated frame and respond to user interactions.
+- Upon running the application, a GUI window will appear displaying the camera feed.
+- Detected objects will be labeled on the video frame along with confidence scores.
+- Press the "Stop" button on the GUI to exit the application.
 
-13. The while loop continues until the "ESC" key is pressed or the GUI window is closed.
+## Configuration
 
-14. Once the loop is exited, the video capture is released using `cap.release()` and any remaining OpenCV windows are closed using `cv2.destroyAllWindows()`.
+- You can adjust the `THRESHOLD`, `INPUT_WIDTH`, and `INPUT_HEIGHT` constants in `main.py` to customize object detection parameters.
+- Make sure to have the correct paths for model configuration (`configPath`), weights (`weightsPath`), and class names (`classFile`) in the script.
 
-Overall, the script continuously captures frames, performs object detection, updates the GUI with bounding boxes and labels, and provides audio output of the detected objects in real-time.
+## Credits
 
-Note: In __main.py__ replace the file __logo.png__ with the file name that contains the logo you designed for your object detection application.
+- The pre-trained model used in this project is based on the COCO dataset.
+- Class names used in the project are derived from the COCO dataset classes.
+
+Feel free to modify and extend this project according to your needs. If you have any questions or suggestions, please create an issue in this repository. Happy coding!
